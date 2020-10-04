@@ -43,22 +43,22 @@ function putGamesOnDom(gameArray){
 
 function putFavoritesOnDom(favArray){
     favCollection.innerHTML = `<h2 class="subheader">My Favorites</h2>
-                               <h4 class="back-link">←Back to Gifts</h4>`
+                               <h4 class="back-link">←Back to Games</h4>`
     favArray.forEach(favorite => {
         favCollection.innerHTML += `<div class="card">
-          <h2>${favorite.gift.title} ($${favorite.gift.price})</h2>
-          <h4 class="gift-cat">${favorite.gift.category}</h4>
-          <a href=${favorite.gift.link} target="_blank"><img src=${favorite.gift.image} class="gift-image" /></a>
-          <p>${favorite.gift.description}<p>
-          <button data-gift-id=${favorite.gift.id} class="like-btn" style="color:red;">♡</button>
+          <h2>${favorite.game.title} ($${favorite.game.price})</h2>
+          <h4 class="game-cat">${favorite.game.category}</h4>
+          <a href=${favorite.game.link} target="_blank"><img src=${favorite.game.image} class="game-image" /></a>
+          <p>${favorite.game.description}<p>
+          <button data-game-id=${favorite.game.id} class="like-btn" style="color:red;">♡</button>
         </div>`
     })
 }
 
-function fetchGifts(){
-    fetch(GIFTS_URL)
+function fetchGames(){
+    fetch(GAMES_URL)
     .then(res => res.json())
-    .then(gifts => putGiftsOnDom(gifts))
+    .then(games => putGAMEsOnDom(games))
 }
 
 function fetchFavorites(){
@@ -94,9 +94,9 @@ signupForm.addEventListener('submit', function(e){
     )
 })
 
-giftCollection.addEventListener('click', function(e) {
+gameCollection.addEventListener('click', function(e) {
     if (event.target.className == "favorites-link") {
-        giftCollection.style.display = 'none';
+        gameCollection.style.display = 'none';
         fetchFavorites();
         favCollection.style.display = 'initial';
     }
@@ -105,7 +105,7 @@ giftCollection.addEventListener('click', function(e) {
 favCollection.addEventListener('click', function(e) {
     if (event.target.className == "back-link") {
         favCollection.style.display = 'none';
-        giftCollection.style.display = 'initial';
+        gameCollection.style.display = 'initial';
     }
 })
 
@@ -117,7 +117,7 @@ function loggedInUser(object){
     fetchGifts()
 }
 
-giftCollection.addEventListener('click', function(e){
+gameCollection.addEventListener('click', function(e){
     // console.log(event.target.className, event.target.style.color)
     // e.preventDefault() was preventing images from being clickable
     if ((event.target.className == "like-btn") && (event.target.style.color !== 'red')) {
@@ -130,7 +130,7 @@ giftCollection.addEventListener('click', function(e){
                 },
                 body: JSON.stringify({
                         user_id: `${currentUser.id}`,
-                        gift_id: `${event.target.dataset.giftId}`
+                        game_id: `${event.target.dataset.gameId}`
                 })
         })
         .then( res => res.json())
