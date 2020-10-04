@@ -95,7 +95,7 @@ signupForm.addEventListener('submit', function(e){
 })
 
 gameCollection.addEventListener('click', function(e) {
-    if (event.target.className == "favorites-link") {
+    if (e.target.className == "favorites-link") {
         gameCollection.style.display = 'none';
         fetchFavorites();
         favCollection.style.display = 'initial';
@@ -103,7 +103,7 @@ gameCollection.addEventListener('click', function(e) {
 })
 
 favCollection.addEventListener('click', function(e) {
-    if (event.target.className == "back-link") {
+    if (e.target.className == "back-link") {
         favCollection.style.display = 'none';
         gameCollection.style.display = 'initial';
     }
@@ -120,8 +120,8 @@ function loggedInUser(object){
 gameCollection.addEventListener('click', function(e){
     // console.log(event.target.className, event.target.style.color)
     // e.preventDefault() was preventing images from being clickable
-    if ((event.target.className == "like-btn") && (event.target.style.color !== 'red')) {
-        let target = event.target
+    if ((e.target.className == "like-btn") && (e.target.style.color !== 'red')) {
+        let target = e.target
             fetch(FAVORITES_URL, {
                 method: "POST",
                 headers: {
@@ -130,15 +130,15 @@ gameCollection.addEventListener('click', function(e){
                 },
                 body: JSON.stringify({
                         user_id: `${currentUser.id}`,
-                        game_id: `${event.target.dataset.gameId}`
+                        game_id: `${e.target.dataset.gameId}`
                 })
         })
         .then( res => res.json())
         .then( res => target.dataset.favId = res.id);
-        event.target.style.color = 'red';}
-    else if ((event.target.className == "like-btn") && (event.target.style.color == 'red')) {
-        event.target.style.color = 'black';
-        fetch(FAVORITES_URL + '/' + event.target.dataset.favId, {
+        e.target.style.color = 'red';}
+    else if ((e.target.className == "like-btn") && (e.target.style.color == 'red')) {
+        e.target.style.color = 'black';
+        fetch(FAVORITES_URL + '/' + e.target.dataset.favId, {
             method: "DELETE"
         })
     }

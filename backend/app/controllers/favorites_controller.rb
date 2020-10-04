@@ -23,10 +23,10 @@ class FavoritesController < ApplicationController
           #       {
           # "id": 2,
           # "user_id": 1,
-          # "gift": {
+          # "game": {
           #   "id": 4,
-          #   "title": "Airpods",
-          #   "category": "tech",
+          #   "title": "",
+          #   "category": "",
           #   "created_at": "2019-05-14T11:20:37.177Z",
           #   "updated_at": "2019-05-14T11:20:37.177Z"
           # }
