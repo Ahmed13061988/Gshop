@@ -26,7 +26,7 @@ class Game {
     render() {
         return `<div class="card">
                   <h2>${this.title} ($${this.price})</h2>
-                  <h4 class="game-cat">${this.category}</h4>
+                  <h4 class="game-cat">${this.category}</h4> 
                   <a href=${this.link} target="_blank"><img src=${this.image} class="game-image" /></a>
                   <p>${this.description}<p>
                   <button data-game-id=${this.id} class="like-btn">♡</button>
@@ -35,7 +35,7 @@ class Game {
 }
 
 function putGamesOnDom(gameArray){
-    gameCollection.innerHTML = `<h2 class="subheader">All Game Ideas</h2>
+    gameCollection.innerHTML = `<h2 class="subheader">All Game </h2>
                                 <h4 class="favorites-link">View My Favorites ♡</h4>`
     gameArray.forEach(game => {
         gameCollection.innerHTML += new Game(game).render()
