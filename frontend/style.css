@@ -26,13 +26,13 @@ button {
   /* justify-self: right; */
 }
 
-.gift-image {
+.game-image {
   justify-self: center;
   height: 12rem;
   width: auto;
 }
 
-.gift-cat {
+.game-cat {
     color: #008080;
 }
 

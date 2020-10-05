@@ -1,3 +1,4 @@
+// document.addEventListener("DOMContentLoaded",()=>{fetchUsers()})
 const BASE_URL = "http://localhost:3000"
 const GAMES_URL = `${BASE_URL}/games`
 const USERS_URL = `${BASE_URL}/users`
@@ -58,7 +59,7 @@ function putFavoritesOnDom(favArray){
 function fetchGames(){
     fetch(GAMES_URL)
     .then(res => res.json())
-    .then(games => putGAMEsOnDom(games))
+    .then(games => putGamesOnDom(games))
 }
 
 function fetchFavorites(){
@@ -114,7 +115,7 @@ function loggedInUser(object){
     signupForm.style.display = 'none'
     welcome.innerHTML = `<h3>Hello, <i>${currentUser.email}</i> !</h3>`
     logout.innerText = "Logout"
-    fetchGifts()
+    fetchGames()
 }
 
 gameCollection.addEventListener('click', function(e){
