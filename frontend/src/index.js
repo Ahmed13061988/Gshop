@@ -35,7 +35,7 @@ class Game {
 }
 
 function putGamesOnDom(gameArray){
-    gameCollection.innerHTML = `<h2 class="subheader">All Game </h2>
+    gameCollection.innerHTML = `<h2 class="subheader">All Games </h2>
                                 <h4 class="favorites-link">View My Favorites ♡</h4>`
     gameArray.forEach(game => {
         gameCollection.innerHTML += new Game(game).render()
