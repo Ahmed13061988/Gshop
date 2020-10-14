@@ -52,9 +52,12 @@ function putFavoritesOnDom(favArray){
           <a href=${favorite.game.link} target="_blank"><img src=${favorite.game.image} class="game-image" /></a>
           <p>${favorite.game.description}<p>
           <button data-game-id=${favorite.game.id} class="like-btn" style="color:red;">♡</button>
+          <button data-game-id=${favorite.game.id} class="
         </div>`
     })
-}
+} 
+     
+
 
 function fetchGames(){
     fetch(GAMES_URL)
@@ -117,6 +120,10 @@ function loggedInUser(object){
     logout.innerText = "Logout"
     fetchGames()
 }
+
+// function logout(){
+//     signupForm.style.display = 'initial'
+// }
 
 gameCollection.addEventListener('click', function(e){
     // console.log(event.target.className, event.target.style.color)
