@@ -1,4 +1,5 @@
-// document.addEventListener("DOMContentLoaded",()=>{fetchUsers()})
+//  document.addEventListener("DOMContentLoaded",()=>{fetchUsers()})
+//  document.addEventListener("DOMContentLoaded",()=>{fetchUsers()})
 const BASE_URL = "http://localhost:3000"
 const GAMES_URL = `${BASE_URL}/games`
 const USERS_URL = `${BASE_URL}/users`
