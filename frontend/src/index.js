@@ -37,11 +37,16 @@ class Game {
 
 function putGamesOnDom(gameArray){
     gameCollection.innerHTML = `<h2 class="subheader">All Games </h2>
+
                                 <h4 class="favorites-link">View My Favorites ♡</h4>`
+                            
     gameArray.forEach(game => {
         gameCollection.innerHTML += new Game(game).render()
     })
 }
+
+
+
 
 function putFavoritesOnDom(favArray){
     favCollection.innerHTML = `<h2 class="subheader">My Favorites</h2>
@@ -105,6 +110,7 @@ gameCollection.addEventListener('click', function(e) {
         favCollection.style.display = 'initial';
     }
 })
+ 
 
 favCollection.addEventListener('click', function(e) {
     if (e.target.className == "back-link") {
@@ -128,6 +134,9 @@ function loggedInUser(object){
     logout.innerText = "Logout"
     fetchGames()
 }
+
+
+
 
 
 
@@ -157,3 +166,4 @@ gameCollection.addEventListener('click', function(e){
         })
     }
 })
+
