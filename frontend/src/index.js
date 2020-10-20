@@ -113,6 +113,14 @@ favCollection.addEventListener('click', function(e) {
     }
 })
 
+logout.addEventListener('click', function(e) {
+ if (e.target.className == "logout") {
+     gameCollection.style.display = 'none';
+     welcome.style.display = 'none';
+     signupForm.style.display = 'initial';
+ }
+})
+
 function loggedInUser(object){
     currentUser = object
     signupForm.style.display = 'none'
@@ -121,9 +129,7 @@ function loggedInUser(object){
     fetchGames()
 }
 
-// function logout(){
-//     signupForm.style.display = 'initial'
-// }
+
 
 gameCollection.addEventListener('click', function(e){
     // console.log(event.target.className, event.target.style.color)
