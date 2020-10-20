@@ -53,7 +53,6 @@ function putFavoritesOnDom(favArray){
           <a href=${favorite.game.link} target="_blank"><img src=${favorite.game.image} class="game-image" /></a>
           <p>${favorite.game.description}<p>
           <button data-game-id=${favorite.game.id} class="like-btn" style="color:red;">♡</button>
-          <button data-game-id=${favorite.game.id} class="
         </div>`
     })
 } 
